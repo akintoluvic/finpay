@@ -6,6 +6,7 @@ import CreateAccount from '@/pages/auth/CreateAccount.vue'
 const routes = [
   { path: '/', component: Login },
   { path: '/signup', component: CreateAccount },
+  { path: '/verify-link', component: () => import('@/pages/auth/VerificationLink.vue') },
 ]
 
 const router = createRouter({

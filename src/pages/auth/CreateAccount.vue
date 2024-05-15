@@ -1,5 +1,38 @@
+<script setup lang="ts">
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import AuthLayout from "@/components/layouts/AuthLayout.vue";
+</script>
+
 <template>
-  <div>
-     <h1>Create Account</h1>
-   </div>
- </template>
+  <AuthLayout
+    title="Create a Secure Account"
+    description="Welcome to the future of Savings & Investments"
+  >
+    <div class="grid grid-cols-2 gap-4">
+      <div class="grid gap-2">
+        <Label for="email">Email</Label>
+        <Input id="email" type="email" placeholder="m@example.com" required />
+      </div>
+      <div class="grid gap-2">
+        <div class="flex items-center">
+          <Label for="password">Password</Label>
+          <a
+            href="/forgot-password"
+            class="ml-auto inline-block text-sm underline"
+          >
+            Forgot your password?
+          </a>
+        </div>
+        <Input id="password" type="password" required />
+      </div>
+      <Button type="submit" class="w-full"> Login </Button>
+      <Button variant="outline" class="w-full"> Login with Google </Button>
+    </div>
+    <div class="mt-4 text-center text-sm">
+      <Button type="submit" class="w-full"> Login </Button>
+      <RouterLink to="/" class="underline">Forgot password</RouterLink>
+    </div>
+  </AuthLayout>
+</template>

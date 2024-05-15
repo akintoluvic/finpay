@@ -71,6 +71,8 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
   }
   body {
     @apply bg-background text-foreground;

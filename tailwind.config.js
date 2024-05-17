@@ -20,13 +20,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        // border: "hsl(var(--border))",
+        border: "#D0D5DD80",
         // input: "hsl(var(--input))",
         // ring: "hsl(var(--ring))",
         background: "#FAFBFF",
         // foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "#7105E9",
+          light: "#9C42FF",
           dark: "#5506AD",
           foreground: "#fff",
         },

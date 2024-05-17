@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import AuthLayout from "@/components/layouts/AuthLayout.vue";
+import AuthLayout from "@/components/auth/layout/AuthLayout.vue";
 import { ArrowLeftIcon } from '@radix-icons/vue'
 </script>
 

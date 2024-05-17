@@ -12,9 +12,11 @@ const routes = [
   {
     path: '/dashboard',
     children: [
-      { path: '', component: () => import('@/pages/dashboard/Home.vue') },
-      // { path: 'invoices', component: Login },
-      // { path: 'cards', component: Login },
+      { path: 'home', component: () => import('@/pages/dashboard/Home.vue') },
+      { path: 'invoices', component: () => import('@/pages/dashboard/Home.vue') },
+      { path: 'cards', component: () => import('@/pages/dashboard/Home.vue') },
+      { path: 'wallets', component: () => import('@/pages/dashboard/Home.vue') },
+      { path: 'transactions', component: () => import('@/pages/dashboard/Home.vue') },
     ], 
   },
 ]

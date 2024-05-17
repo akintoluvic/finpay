@@ -1,5 +1,7 @@
 <template>
-  <DashboardLayout>
+  <DashboardLayout
+    title="Welcome Olivia"
+  >
   <div>
     Home
   </div>

@@ -9,13 +9,14 @@ import AuthLayout from "@/components/layouts/AuthLayout.vue";
   <AuthLayout
     title="Login to your account"
     description="Securely login tp your FinPay accounnt"
+    :showLogo="true"
   >
-    <div class="grid gap-4">
-      <div class="grid gap-2">
-        <Label for="email">Email</Label>
+    <div class="grid mt-10">
+      <div class="grid gap-2 mb-8">
+        <Label for="email">Email Address or Phone Number<sup>*</sup></Label>
         <Input id="email" type="email" placeholder="m@example.com" required />
       </div>
-      <div class="grid gap-2">
+      <div class="grid gap-2 mb-10">
         <div class="flex items-center">
           <Label for="password">Password</Label>
           <a
@@ -27,12 +28,10 @@ import AuthLayout from "@/components/layouts/AuthLayout.vue";
         </div>
         <Input id="password" type="password" required />
       </div>
-      <Button type="submit" class="w-full"> Login </Button>
-      <Button variant="outline" class="w-full"> Login with Google </Button>
-    </div>
-    <div class="mt-4 text-center text-sm">
-      <Button type="submit" class="w-full"> Login </Button>
-      <RouterLink to="/signup" class="underline">Forgot password</RouterLink>
+      <div class="mt-2 text-center text-sm">
+        <Button type="submit" class="w-full mb-10"> Login </Button>
+        <RouterLink to="/signup" class="underline">Forgot password</RouterLink>
+      </div>
     </div>
   </AuthLayout>
 </template>

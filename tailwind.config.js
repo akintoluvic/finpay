@@ -24,25 +24,25 @@ module.exports = {
         // input: "hsl(var(--input))",
         // ring: "hsl(var(--ring))",
         background: "#FAFBFF",
-        // foreground: "hsl(var(--foreground))",
+        foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "#7105E9",
           light: "#9C42FF",
           dark: "#5506AD",
           foreground: "#fff",
         },
-        // secondary: {
-        //   DEFAULT: "hsl(var(--secondary))",
-        //   foreground: "hsl(var(--secondary-foreground))",
-        // },
+        secondary: {
+          DEFAULT: "#222B45",
+          foreground: "#F9F5FF80;",
+        },
         // destructive: {
         //   DEFAULT: "hsl(var(--destructive))",
         //   foreground: "hsl(var(--destructive-foreground))",
         // },
-        // muted: {
-        //   DEFAULT: "hsl(var(--muted))",
-        //   foreground: "hsl(var(--muted-foreground))",
-        // },
+        muted: {
+          DEFAULT: "#222B45",
+          foreground: "#475467",
+        },
         // accent: {
         //   DEFAULT: "hsl(var(--accent))",
         //   foreground: "hsl(var(--accent-foreground))",

@@ -41,7 +41,7 @@ const handleComplete = (e: string[]) => alert(e.join(''))
         <PinInputGroup class="gap-1">
           <template v-for="(id, index) in 4" :key="id">
             <PinInputInput
-              class="rounded-md border"
+              class="rounded-md border placeholder:text-muted-foreground/5"
               :index="index"
             />
             <template v-if="index !== 3">

@@ -1,0 +1,8 @@
+export { default as ConvertIcon } from './ConvertIcon.vue'
+export { default as DownIcon } from './DownIcon.vue'
+export { default as FundIcon } from './FundIcon.vue'
+export { default as InvoicesIcon } from './InvoicesIcon.vue'
+export { default as Logo } from './Logo.vue'
+export { default as LogoWhite } from './LogoWhite.vue'
+export { default as NotificationIcon } from './NotificationIcon.vue'
+export { default as SendIcon } from './SendIcon.vue'

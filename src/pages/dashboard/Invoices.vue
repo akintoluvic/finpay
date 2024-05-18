@@ -1,10 +1,9 @@
 <template>
   <DashboardLayout
-    title="Welcome Olivia"
-    greeting="Good morning, have a great day!"
+    title="Invoices"
   >
   <div>
-    Home
+    Invoices
   </div>
 </DashboardLayout>
 </template>

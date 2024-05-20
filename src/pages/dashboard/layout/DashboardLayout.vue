@@ -134,7 +134,6 @@ watch(() => route.path, (newId, oldId) => {
       <div class="pl-16 pr-28 mt-[161px]">
         <slot />
       </div>
-      <div v-for="i in 10" class="h-72 bg-slate-300 mb-10">dd</div>
     </div>
     
   </main>

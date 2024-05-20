@@ -19,3 +19,6 @@ export { default as EuroIcon } from './currency/Eur.vue'
 export { default as GbpIcon } from './currency/Gbp.vue'
 export { default as UsdIcon } from './currency/Usd.vue'
 export { default as NgnIcon } from './currency/Ngn.vue'
+
+// Illustrations
+export { default as EmptyCardsList } from './illustrations/EmptyCardsList.vue'

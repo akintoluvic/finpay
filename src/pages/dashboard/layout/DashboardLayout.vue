@@ -105,21 +105,21 @@ watch(() => route.path, (newId, oldId) => {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 text-primary">
                   <FundIcon />
                   <span>Fund Wallet</span>
                 </div>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 text-primary">
                   <ConvertIcon />
                   <span>Convert Funds</span>
                 </div>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 text-primary">
                   <InvoicesIcon />
                   <span>Create new invoice</span>
                 </div>

@@ -6,9 +6,9 @@ import Look from "@/components/Look.vue";
 import { AllAccountsIcon, ConvertIcon, EuroIcon, GbpIcon, HomeIcon, InvoicesIcon, InvoicesWhiteIcon, NgnIcon, SendIcon, UsdIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { title } from "process";
+import { ref } from "vue";
 
-const accounts = {
+const accounts = ref({
   all: {
     balance: 5000,
     name: "All Accounts",
@@ -17,24 +17,28 @@ const accounts = {
   usd: {
     balance: 1500,
     name: "USD",
-    icon: UsdIcon
+    icon: UsdIcon,
+    symbol: "$",
   },
   gbp: {
     balance: 1000,
     name: "GBP",
     icon: GbpIcon,
+    symbol: "£",
   },
   eur: {
     balance: 1100,
     name: "EUR",
-    icon: EuroIcon
+    icon: EuroIcon,
+    symbol: "€",
   },
   ngn: {
     balance: 1400,
     name: "NGN",
     icon: NgnIcon,
+    symbol: "₦",
   }
-}
+})
 
 const quickActions = {
   send: {
@@ -71,6 +75,31 @@ const receivePayments = {
     description: "IBAN, Bank code (SWIFT/IBC)",
   }
 }
+
+const exchangeRates = ref({
+  eur: {
+    currency: "EUR",
+    buying: 1320,
+    selling: 1390,
+    icon: EuroIcon,
+    symbol: "€",
+  },
+  gbp: {
+    currency: "GBP",
+    buying: 1755,
+    selling: 1852,
+    icon: GbpIcon,
+    symbol: "£",
+  },
+  usd: {
+    currency: "USD",
+    buying: 1320,
+    selling: 1245,
+    icon: UsdIcon,
+    symbol: "$",
+  },
+})
+
 </script>
 
 <template>
@@ -161,15 +190,46 @@ const receivePayments = {
           </div>
           <div class="text-transparent">.</div>
 
-          <Button class="flex item-center gap-2">
+          <Button class="flex font-semibold item-center gap-2">
             <InvoicesWhiteIcon />
             Create new invoice
           </Button>
         </div>
       </Card>
     </div>
+
+    <div class="grid grid-cols-3 gap-4">
+      <Card title="Exchange Rates" class="col-span-2">
+        <div class="px-6">
+        <table 
+          v-for="rate in exchangeRates"
+          :key="rate.currency" 
+          class="table-fixed w-full text-xs text-muted-foreground text-center my-3 px-6"
+        >
+          <thead class="border-b">
+            <tr>
+              <th class="font-normal text-left py-2">Currency</th>
+              <th class="font-normal">Buying</th>
+              <th class="font-normal">Selling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="flex items-center gap-x-2 text-base font-semibold py-2 text-left">
+                <HomeIcon />
+                {{ rate.currency }} {{ rate.symbol }}
+              </td>
+              <td>₦{{ rate.buying }}</td>
+              <td>₦{{ rate.selling }}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </Card>
+      <Card title="sjd"></Card>
+    </div>
+
   </div>
-  
 </DashboardLayout>
 </template>
 

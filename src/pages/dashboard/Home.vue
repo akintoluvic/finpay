@@ -238,7 +238,7 @@ const exchangeRates = ref({
                   <td
                     class="flex items-center gap-x-2 py-2 text-left text-base font-semibold"
                   >
-                    <HomeIcon />
+                    <component :is="rate.icon" />
                     {{ rate.currency }} {{ rate.symbol }}
                   </td>
                   <td>₦{{ rate.buying }}</td>

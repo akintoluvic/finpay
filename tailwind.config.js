@@ -35,6 +35,26 @@ module.exports = {
           DEFAULT: "#222B45",
           foreground: "#F9F5FF80;",
         },
+        blue: {
+          DEFAULT: "#172590",
+          foreground: "#1725900D",
+          border: "#17259026"
+        },
+        green: {
+          DEFAULT: "#347809",
+          foreground: "#31551A0D",
+          border: "#34780926"
+        },
+        yellow: {
+          DEFAULT: "#A37E1D",
+          foreground: "#A37E1D0D",
+          border: "#A37E1D26"
+        },
+        red: {
+          DEFAULT: "#B93815",
+          foreground: "#FFF4ED",
+          border: "#B93815"
+        },
         // destructive: {
         //   DEFAULT: "hsl(var(--destructive))",
         //   foreground: "hsl(var(--destructive-foreground))",

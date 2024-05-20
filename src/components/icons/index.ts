@@ -12,6 +12,7 @@ export { default as CardWhiteIcon } from './CardWhiteIcon.vue'
 export { default as WalletsWhiteIcon } from './WalletsWhiteIcon.vue'
 export { default as TransactionsWhiteIcon } from './TransactionsWhiteIcon.vue'
 export { default as HomeIcon } from './Home.vue'
+export { default as CardIcon } from './Card.vue'
 
 export { default as AllAccountsIcon } from './currency/All.vue'
 export { default as EuroIcon } from './currency/Eur.vue'

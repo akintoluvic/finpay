@@ -51,7 +51,7 @@ const transactions = ref([
 </script>
 <template>
   <DashboardLayout title="Wallets">
-    <div class="flex flex-col gap-y-10">
+    <div class="flex flex-col gap-y-10 pb-12">
       <div class="flex gap-6">
         <RouterLink to="" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
           <SendIcon />
@@ -65,37 +65,46 @@ const transactions = ref([
 
       <div class="grid grid-cols-3 gap-6">
         <Card
-            title="Tasks"
-            :heightSmall="true"
-          >
-            <template #action-button>
-              <div class="flex items-center justify-between w-full py-2 px-2">
-                <div class="flex items-center gap-2 mr-auto">
-                  <UsdIcon />
-                  <p class="font-bold">USD ($)</p>
-                </div>
-                <Button variant="outline" class="flex items-center rounded gap-2">
-                  Switch
-                  <CaretSortIcon />
-                </Button>
+          title="Tasks"
+          :heightSmall="true"
+        >
+          <template #action-button>
+            <div class="flex items-center justify-between w-full py-0.5 px-2">
+              <div class="flex items-center gap-2 mr-auto">
+                <UsdIcon />
+                <p class="font-bold">USD ($)</p>
               </div>
-            </template>
-            <div class="px-6 pb-7 pt-11">
-              <div class="flex flex-col items-start justify-center gap-1">
-                <div class="text-xs font-normal leading-tight text-slate-600">
-                  Available Balance
-                </div>
-                <div class="text-2xl font-semibold leading-9 text-slate-800">
-                  $ 5,000
-                </div>
-              </div>
+              <Button variant="outline" class="flex items-center rounded gap-2 hover:bg-muted-background/5">
+                Switch
+                <CaretSortIcon />
+              </Button>
             </div>
-          </Card>
+          </template>
+          <div class="px-6 pt-4">
+            <div class="text-[32px] font-semibold leading-9 text-slate-800 mb-8">
+                $ 5,000
+              </div>
+            <Button variant="outline" class="flex items-center hover:bg-muted-background/5 text-[8px] font-semibold rounded py-1 px-3 gap-2">
+                View details
+                <ArrowRightIcon class="size-6 stroke-2" />
+              </Button>
+              <div class="flex w-full">
+                <RouterLink
+                  to=""
+                  class="ml-auto mt-9 flex items-center gap-x-2 text-xs font-semibold text-primary"
+                >
+                  Account Statement
+                  <ArrowRightIcon class="size-5" />
+                </RouterLink>
+              </div>
+          </div>
+          
+        </Card>
         <Card title="USD" :height-small="true">
           <template #action-button>
               <div class="flex items-center justify-between w-full py-2 px-2">
                 <div class="font-bold">Receiving Account</div>
-                <Button variant="outline" class="flex items-center text-[8px] font-semibold rounded py-1 px-3 gap-2">
+                <Button variant="outline" class="flex items-center hover:bg-muted-background/5 text-[8px] font-semibold rounded py-1 px-3 gap-2">
                   View details
                   <ArrowRightIcon class="size-6 stroke-2" />
                 </Button>

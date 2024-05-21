@@ -16,7 +16,7 @@ const routes = [
       { path: 'invoices', component: () => import('@/pages/dashboard/Invoices.vue') },
       { path: 'cards', component: () => import('@/pages/dashboard/Cards.vue') },
       { path: 'wallets', component: () => import('@/pages/dashboard/Home.vue') },
-      { path: 'transactions', component: () => import('@/pages/dashboard/Home.vue') },
+      { path: 'transactions', component: () => import('@/pages/dashboard/Transactions.vue') },
     ], 
   },
 ]

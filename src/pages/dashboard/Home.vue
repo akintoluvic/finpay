@@ -2,7 +2,6 @@
 import DashboardLayout from "./layout/DashboardLayout.vue";
 
 import Card from "@/components/Card.vue";
-import Look from "@/components/Look.vue";
 import {
   AllAccountsIcon,
   CardIcon,

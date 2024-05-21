@@ -11,6 +11,7 @@ import {
   CaretSortIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  CopyIcon,
 } from "@radix-icons/vue";
 import { SwitchIcon } from "@radix-icons/vue";
 
@@ -110,6 +111,41 @@ const transactions = ref([
                 </Button>
               </div>
             </template>
+          <div class="px-6 pt-2 flex flex-col gap-4 divide-y">
+            <div class="flex items-start gap-1">
+              <div class="flex flex-col">
+                <div class="text-xs font-medium -mb-2 leading-9 text-secondary">
+                  Elijah Nnabuife
+                </div>
+                <div class="font-normal text-xs leading-tight text-muted-foreground">
+                  Account Holder
+                </div>
+              </div>
+              <CopyIcon class="mt-3" />
+            </div>
+            <div class="flex items-start gap-1">
+              <div class="flex flex-col">
+                <div class="text-xs font-medium -mb-2 leading-9 text-secondary">
+                  WELLS FARGO BANK, N.A.
+                </div>
+                <div class="font-normal text-xs leading-tight text-muted-foreground">
+                  Bank Name
+                </div>
+              </div>
+              <CopyIcon class="mt-3" />
+            </div>
+            <div class="flex items-start gap-1">
+              <div class="flex flex-col">
+                <div class="text-xs font-medium -mb-2 leading-9 text-secondary">
+                  40630101689676683
+                </div>
+                <div class="font-normal text-xs leading-tight text-muted-foreground">
+                  Account Number
+                </div>
+              </div>
+              <CopyIcon class="mt-3" />
+            </div>
+          </div>
         </Card>
         <Card title="Expenses">
           <div class="px-6">

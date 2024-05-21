@@ -14,6 +14,10 @@ export { default as TransactionsWhiteIcon } from './TransactionsWhiteIcon.vue'
 export { default as HomeIcon } from './Home.vue'
 export { default as CardIcon } from './Card.vue'
 
+export { default as SearchIcon } from './more-icons/Search.vue'
+export { default as FilterIcon } from './more-icons/Filter.vue'
+
+
 export { default as AllAccountsIcon } from './currency/All.vue'
 export { default as EuroIcon } from './currency/Eur.vue'
 export { default as GbpIcon } from './currency/Gbp.vue'

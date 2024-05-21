@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { Input } from "@/components/ui/input";
 import DashboardLayout from "./layout/DashboardLayout.vue";
-import { ConvertIcon, FilterIcon, SearchIcon, SendIcon, UsdIcon } from "@/components/icons";
+import { ConvertIcon, EuroIcon, GbpIcon, NgnIcon, SendIcon, UsdIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card.vue";
 import { ref } from "vue";
@@ -9,11 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import {
   ArrowRightIcon,
   CaretSortIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
   CopyIcon,
 } from "@radix-icons/vue";
-import { SwitchIcon } from "@radix-icons/vue";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 const transactions = ref([
   {
@@ -75,10 +78,43 @@ const transactions = ref([
                 <UsdIcon />
                 <p class="font-bold">USD ($)</p>
               </div>
-              <Button variant="outline" class="flex items-center rounded gap-2 hover:bg-muted-background/5">
-                Switch
-                <CaretSortIcon />
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Button variant="outline" class="flex items-center rounded gap-2 hover:bg-muted-background/5">
+                    Switch
+                    <CaretSortIcon />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent class="w-44">
+                  <DropdownMenuLabel>
+                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+                      <UsdIcon />
+                      <span>US Dollar ($)</span>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel>
+                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+                      <GbpIcon />
+                      <span>British Pounds (£)</span>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel>
+                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+                      <EuroIcon />
+                      <span>Euro (€)</span>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel>
+                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+                      <NgnIcon />
+                      <span>Nigerian Naira (₦)</span>
+                    </div>
+                  </DropdownMenuLabel>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </template>
           <div class="px-6 pt-4">

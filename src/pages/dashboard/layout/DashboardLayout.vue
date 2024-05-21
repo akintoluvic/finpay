@@ -98,7 +98,7 @@ watch(() => route.path, (newId, oldId) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent class="w-40">
               <DropdownMenuLabel>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 text-primary">
                   <SendIcon />
                   <span>Send Money</span>
                 </div>

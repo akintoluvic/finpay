@@ -8,9 +8,11 @@ import { ref } from "vue";
 import { Badge } from "@/components/ui/badge";
 import {
   ArrowRightIcon,
+  CaretSortIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@radix-icons/vue";
+import { SwitchIcon } from "@radix-icons/vue";
 
 const transactions = ref([
   {
@@ -67,11 +69,15 @@ const transactions = ref([
             :heightSmall="true"
           >
             <template #action-button>
-              <div class="flex items-center justify-between py-2 px-2">
-                <div class="flex items-center gap-2">
+              <div class="flex items-center justify-between w-full py-2 px-2">
+                <div class="flex items-center gap-2 mr-auto">
                   <UsdIcon />
                   <p class="font-bold">USD ($)</p>
                 </div>
+                <Button variant="outline" class="flex items-center rounded gap-2">
+                  Switch
+                  <CaretSortIcon />
+                </Button>
               </div>
             </template>
             <div class="px-6 pb-7 pt-11">
@@ -85,7 +91,17 @@ const transactions = ref([
               </div>
             </div>
           </Card>
-        <Card title="USD"></Card>
+        <Card title="USD" :height-small="true">
+          <template #action-button>
+              <div class="flex items-center justify-between w-full py-2 px-2">
+                <div class="font-bold">Receiving Account</div>
+                <Button variant="outline" class="flex items-center text-[8px] font-semibold rounded py-1 px-3 gap-2">
+                  View details
+                  <ArrowRightIcon class="size-6 stroke-2" />
+                </Button>
+              </div>
+            </template>
+        </Card>
         <Card title="Expenses">
           <div class="px-6">
             <div class="flex items-center justify-between py-2 px-2">
@@ -110,7 +126,7 @@ const transactions = ref([
             <div class="my-8 h-10 rounded bg-muted-background flex-1">
             </div>
 
-            <div class="flex gap-6">
+            <div class="flex gap-6 mb-1.5">
               <div class="flex items-center gap-2">
                 <div class="h-4 w-4 bg-primary rounded-full"></div>
                 <div class="text-secondary text-xs font-medium">Income</div>

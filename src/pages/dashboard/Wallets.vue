@@ -17,6 +17,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import AccountDetailsModal, { AccountDetailsProps } from "@/components/all-modals/AccountDetailsModal.vue";
 
 const transactions = ref([
   {
@@ -52,6 +53,34 @@ const transactions = ref([
     type: "Transfer",
   },
 ]);
+
+const accountDetails = ref<AccountDetailsProps>({
+  accountHolder: {
+    value: "Nnabuife Elijdh",
+    label: "Account Holder",
+  },
+  bankName: {
+    value: "WELLS FARGO BANK, N.A.",
+    label: "Bank Name",
+  },
+  accountNumber: {
+    value: "40630101689676683",
+    label: "Account Number",
+  },
+  rountingNumber: {
+    value: "110000000",
+    label: "Rounting Number",
+  },
+  accountType: {
+    value: "Checking",
+    label: "Account Type",
+  },
+  address: {
+    value: "651 North Broad Street, Suite 206, Middletown ,19709 Delaware, USA",
+    label: "Address",
+  },
+})
+
 </script>
 <template>
   <DashboardLayout title="Wallets">
@@ -141,10 +170,14 @@ const transactions = ref([
           <template #action-button>
               <div class="flex items-center justify-between w-full py-2 px-2">
                 <div class="font-bold">Receiving Account</div>
-                <Button variant="outline" class="flex items-center hover:bg-muted-background/5 text-[8px] font-semibold rounded py-1 px-3 gap-2">
-                  View details
-                  <ArrowRightIcon class="size-6 stroke-2" />
-                </Button>
+                <AccountDetailsModal
+                  :accountDetails="accountDetails"
+                >
+                  <Button variant="outline" class="flex items-center hover:bg-muted-background/5 text-[8px] font-semibold rounded py-1 px-3 gap-2">
+                    View details
+                    <ArrowRightIcon class="size-6 stroke-2" />
+                  </Button>
+                </AccountDetailsModal>
               </div>
             </template>
           <div class="px-6 pt-2 flex flex-col gap-4 divide-y">

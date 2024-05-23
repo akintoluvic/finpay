@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import DashboardLayout from "./layout/DashboardLayout.vue";
+import DashboardLayout from "../layout/DashboardLayout.vue";
 
 import Card from "@/components/Card.vue";
 import {

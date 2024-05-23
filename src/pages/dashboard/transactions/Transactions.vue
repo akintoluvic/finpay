@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Input } from "@/components/ui/input";
-import DashboardLayout from "./layout/DashboardLayout.vue";
+import DashboardLayout from "../layout/DashboardLayout.vue";
 import { FilterIcon, SearchIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card.vue";

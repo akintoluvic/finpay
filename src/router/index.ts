@@ -12,11 +12,20 @@ const routes = [
   {
     path: '/dashboard',
     children: [
-      { path: 'home', component: () => import('@/pages/dashboard/Home.vue') },
-      { path: 'invoices', component: () => import('@/pages/dashboard/Invoices.vue') },
-      { path: 'cards', component: () => import('@/pages/dashboard/Cards.vue') },
-      { path: 'wallets', component: () => import('@/pages/dashboard/Wallets.vue') },
-      { path: 'transactions', component: () => import('@/pages/dashboard/Transactions.vue') },
+      { 
+        path: 'home', 
+        component: () => import('@/pages/dashboard/home/Overview.vue'),
+      },
+      { 
+        path: 'invoices',
+        children: [
+          { path: '', component: () => import('@/pages/dashboard/invoices/Invoices.vue') },
+          { path: 'new', component: () => import('@/pages/dashboard/invoices/NewInvoice.vue') },
+        ]
+      },
+      { path: 'cards', component: () => import('@/pages/dashboard/cards/Cards.vue') },
+      { path: 'wallets', component: () => import('@/pages/dashboard/wallets/Wallets.vue') },
+      { path: 'transactions', component: () => import('@/pages/dashboard/transactions/Transactions.vue') },
     ], 
   },
 ]

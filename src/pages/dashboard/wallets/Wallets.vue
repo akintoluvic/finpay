@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import DashboardLayout from "./layout/DashboardLayout.vue";
+import DashboardLayout from "../layout/DashboardLayout.vue";
 import { ConvertIcon, EuroIcon, GbpIcon, NgnIcon, SendIcon, UsdIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card.vue";

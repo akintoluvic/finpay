@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Card from "@/components/Card.vue";
-import DashboardLayout from "./layout/DashboardLayout.vue";
+import DashboardLayout from "../layout/DashboardLayout.vue";
 import { Button } from "@/components/ui/button";
 import { EmptyCardsList } from "@/components/icons";
 

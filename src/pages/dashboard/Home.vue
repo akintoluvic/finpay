@@ -18,6 +18,8 @@ import {
 } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import AccountDetailsModal, { AccountDetailsProps } from "@/components/all-modals/AccountDetailsModal.vue";
+
 import { ref } from "vue";
 
 const accounts = ref({
@@ -112,6 +114,33 @@ const exchangeRates = ref({
     symbol: "$",
   },
 });
+
+const accountDetails = ref<AccountDetailsProps>({
+  accountHolder: {
+    value: "Nnabuife Elijdh",
+    label: "Account Holder",
+  },
+  bankName: {
+    value: "WELLS FARGO BANK, N.A.",
+    label: "Bank Name",
+  },
+  accountNumber: {
+    value: "40630101689676683",
+    label: "Account Number",
+  },
+  rountingNumber: {
+    value: "110000000",
+    label: "Rounting Number",
+  },
+  accountType: {
+    value: "Checking",
+    label: "Account Type",
+  },
+  address: {
+    value: "651 North Broad Street, Suite 206, Middletown ,19709 Delaware, USA",
+    label: "Address",
+  },
+})
 </script>
 
 <template>
@@ -120,6 +149,8 @@ const exchangeRates = ref({
     greeting="Good morning, have a great day!"
   >
     <div class="mb-16 flex flex-col gap-y-10">
+
+      <!-- Account Balance -->
       <Card title="Account Balance">
         <div class="grid grid-cols-5 gap-4 px-8 pb-10 pt-8">
           <Card
@@ -149,6 +180,7 @@ const exchangeRates = ref({
         </div>
       </Card>
 
+      <!-- Quick Actions -->
       <Card title="Quick Actions">
         <div class="grid grid-cols-3 gap-4 px-8 py-8">
           <RouterLink
@@ -173,24 +205,32 @@ const exchangeRates = ref({
         </div>
       </Card>
 
+      <!-- Recieve Payments -->
       <div class="grid grid-cols-2 gap-4">
         <Card title="Recieve Payments">
           <div class="flex flex-col">
-            <div
+            <AccountDetailsModal 
               v-for="account in receivePayments"
               :key="account.title"
-              class="flex gap-x-4 px-8 py-7 even:bg-background"
+              :accountDetails="accountDetails"
+            >
+            <button
+              
+              class="flex gap-x-4 px-8 py-7 even:bg-background hover:bg-muted-background"
             >
               <HomeIcon />
-              <div class="flex flex-col">
+              <div class="flex flex-col text-left">
                 <p class="font-semibold">{{ account.title }}</p>
                 <span class="max-w-80 text-xs text-muted-foreground">{{
                   account.description
                 }}</span>
               </div>
-            </div>
+            </button>
+            </AccountDetailsModal>
           </div>
         </Card>
+
+        <!-- Invoices -->
         <Card title="Invoices">
           <div class="flex flex-col px-6 pb-8">
             <div class="flex flex-col divide-y">
@@ -217,6 +257,7 @@ const exchangeRates = ref({
         </Card>
       </div>
 
+      <!-- Exchange Rates -->
       <div class="grid grid-cols-3 gap-4">
         <Card title="Exchange Rates" class="col-span-2">
           <div class="px-6">
@@ -247,6 +288,8 @@ const exchangeRates = ref({
             </table>
           </div>
         </Card>
+
+        <!-- Cards -->
         <Card title="Cards">
           <div class="flex flex-col items-center px-6 pb-16 pt-12">
             <CardIcon />

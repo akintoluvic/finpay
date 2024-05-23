@@ -86,7 +86,7 @@ const accountDetails = ref<AccountDetailsProps>({
   <DashboardLayout title="Wallets">
     <div class="flex flex-col gap-y-10 pb-12">
       <div class="flex gap-6">
-        <RouterLink to="" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
+        <RouterLink to="wallets/send" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
           <SendIcon />
           <span>Send Money</span>
         </RouterLink>

@@ -24,7 +24,13 @@ const routes = [
         ]
       },
       { path: 'cards', component: () => import('@/pages/dashboard/cards/Cards.vue') },
-      { path: 'wallets', component: () => import('@/pages/dashboard/wallets/Wallets.vue') },
+      { 
+        path: 'wallets', 
+        children: [
+          { path: '', component: () => import('@/pages/dashboard/wallets/Wallets.vue'), },
+          { path: 'send', component: () => import('@/pages/dashboard/wallets/SendMoney.vue'), },
+        ]
+      },
       { path: 'transactions', component: () => import('@/pages/dashboard/transactions/Transactions.vue') },
     ], 
   },

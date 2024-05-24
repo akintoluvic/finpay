@@ -20,9 +20,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import AccountDetailsModal, { AccountDetailsProps } from "@/components/all-modals/AccountDetailsModal.vue";
 
-import { ref } from "vue";
+import { ref, shallowRef } from "vue";
 
-const accounts = ref({
+const accounts = shallowRef({
   all: {
     balance: 5000,
     name: "All Accounts",
@@ -58,19 +58,19 @@ const quickActions = {
   send: {
     title: "Send Money",
     icon: SendIcon,
-    url: "/send",
+    url: "/dashboard/wallets/send",
     color: "blue",
   },
   convert: {
     title: "Convert",
     icon: ConvertIcon,
-    url: "/convert",
+    url: "/dashboard/wallets/convert",
     color: "green",
   },
   createInvoice: {
     title: "Create new invoice",
     icon: InvoicesIcon,
-    url: "/create-invoice",
+    url: "/dashboard/wallets/create-invoice",
     color: "yellow",
   },
 };
@@ -91,7 +91,7 @@ const receivePayments = {
   },
 };
 
-const exchangeRates = ref({
+const exchangeRates = shallowRef({
   eur: {
     currency: "EUR",
     buying: 1320,

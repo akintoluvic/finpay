@@ -22,12 +22,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { ref, watch } from "vue";
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
-console.log('route', route.path)
+import { shallowRef } from "vue";
 
 defineProps<{
   title: string;
@@ -35,7 +30,7 @@ defineProps<{
 }>();
 
 
-const links = ref({
+const links = shallowRef({
   dashboard: {
     path: '/dashboard/home',
     icon: DashboardWhiteIcon
@@ -58,10 +53,6 @@ const links = ref({
   },
 })
 
-
-watch(() => route.path, (newId, oldId) => {
-  console.log('route', route.path)
-})
 
 </script>
 <template>

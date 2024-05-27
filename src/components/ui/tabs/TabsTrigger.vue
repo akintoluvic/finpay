@@ -3,7 +3,10 @@ import { type HTMLAttributes, computed } from 'vue'
 import { TabsTrigger, type TabsTriggerProps, useForwardProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<TabsTriggerProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<TabsTriggerProps & { 
+  class?: HTMLAttributes['class'], 
+  myStyle?: boolean
+}>()
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
@@ -18,8 +21,11 @@ const forwardedProps = useForwardProps(delegatedProps)
   <TabsTrigger
     v-bind="forwardedProps"
     :class="cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-slate-950 data-[state=active]:shadow dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=active]:bg-slate-950 dark:data-[state=active]:text-slate-50',
+      'inline-flex items-center justify-center whitespace-nowrap py-[27px]',
       props.class,
+      !!props.myStyle
+        ? 'border-b-2 border-secondary-foreground/20 text-border data-[state=active]:text-secondary data-[state=active]:bg-white data-[state=active]:border-b-2 data-[state=active]:border-primary text-slate-500 dark:bg-slate-800 dark:text-slate-400'
+        : 'rounded-md px-3 py-1 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  data-[state=active]:bg-white data-[state=active]:text-slate-950 data-[state=active]:shadow dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=active]:bg-slate-950 dark:data-[state=active]:text-slate-50'
     )"
   >
     <slot />

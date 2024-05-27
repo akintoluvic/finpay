@@ -5,10 +5,7 @@ defineProps<{
   title: string;
   description: string;
   widthSmall?: boolean;
-  showLogo: {
-    type: Boolean,
-    default: false
-  }
+  showLogo: boolean;
 }>();
 </script>
 <template>

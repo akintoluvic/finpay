@@ -27,10 +27,10 @@ const goBack = () => {
           <SearchIcon class="size-6 text-muted-foreground" />
         </span>
       </div>
-      <Button class="flex items-center text-primary bg-white border border-primary hover:bg-muted-background gap-2">
-        <PlusIcon />
+      <Button class="flex items-center text-primary text-base bg-white border border-primary hover:bg-muted-background gap-2">
+        <PlusIcon class="size-5 stroke-primary stroke-0.5" />
         Add beneficiary
-        <ArrowRightIcon />
+        <ArrowRightIcon class=" stroke-primary" />
 
       </Button>
     </div>

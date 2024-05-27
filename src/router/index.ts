@@ -15,6 +15,7 @@ const routes = [
       { 
         path: 'home', 
         component: () => import('@/pages/dashboard/home/Overview.vue'),
+        alias: ['/dashboard',]
       },
       { 
         path: 'invoices',

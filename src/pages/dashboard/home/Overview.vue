@@ -70,7 +70,7 @@ const quickActions = {
   createInvoice: {
     title: "Create new invoice",
     icon: InvoicesIcon,
-    url: "/dashboard/wallets/create-invoice",
+    url: "/dashboard/invoices/new",
     color: "yellow",
   },
 };

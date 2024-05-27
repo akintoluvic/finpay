@@ -72,7 +72,7 @@ const generateAnotherInvoice = () => {
           Create another invoice
           <ArrowRightIcon class="stroke-white" />
         </Button>
-        <RouterLink to="/home" class="text-center text-primary mb-12 gap-2 hover:underline">
+        <RouterLink to="/dashboard/home" class="text-center text-primary mb-12 gap-2 hover:underline">
           Back to Dashboard
         </RouterLink>
       </div>

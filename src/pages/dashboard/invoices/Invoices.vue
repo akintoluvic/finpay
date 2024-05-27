@@ -63,7 +63,7 @@ import { ArrowRightIcon } from "@radix-icons/vue";
           >
           <RouterLink to="invoices/new" class="w-full">
             <Button class="w-full font-semibold gap-2">
-              Create new card
+              New invoice
               <ArrowRightIcon class="stroke-white" />
             </Button>
           </RouterLink>

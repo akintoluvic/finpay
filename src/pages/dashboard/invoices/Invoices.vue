@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Input } from "@/components/ui/input";
 import DashboardLayout from "../layout/DashboardLayout.vue";
-import { FilterIcon, SearchIcon } from "@/components/icons";
+import { FilterIcon, InvoicesIcon, SearchIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   Tabs,
@@ -9,6 +9,7 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/ui/tabs'
+import { ArrowRightIcon } from "@radix-icons/vue";
 
 </script>
 <template>
@@ -53,8 +54,19 @@ import {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="all">
-        <div class="p-4">
-          Werf
+        <div class="flex flex-col items-center px-6 pb-16 pt-12 max-w-96 mx-auto">
+          <InvoicesIcon class="h-8 w-8" />
+          <div class="my-2 text-2xl font-semibold">No payments</div>
+          <span
+            class="mb-10 text-center text-sm text-muted-foreground"
+            >Once you have any payment, the information appears here</span
+          >
+          <RouterLink to="invoices/new" class="w-full">
+            <Button class="w-full font-semibold gap-2">
+              Create new card
+              <ArrowRightIcon class="stroke-white" />
+            </Button>
+          </RouterLink>
         </div>
       </TabsContent>
       <TabsContent value="draft">

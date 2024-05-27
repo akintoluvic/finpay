@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AuthLayout from "@/pages/auth/layout/AuthLayout.vue";
+import router from "@/router";
+
+const createAccount = () => {
+  router.push('/verify-link')
+}
 </script>
 
 <template>
@@ -41,8 +46,13 @@ import AuthLayout from "@/pages/auth/layout/AuthLayout.vue";
       *Must be at least 8 characters
     </span>
     <div class="text-center text-sm">
-      <Button type="submit" class="w-full"> Create account </Button>
-      <RouterLink to="/" class="underline">Forgot password</RouterLink>
+      <Button 
+        @click="createAccount" 
+        type="submit" 
+        class="w-full"
+      > 
+        Create account 
+      </Button>
     </div>
   </AuthLayout>
 </template>

@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import AuthLayout from "@/pages/auth/layout/AuthLayout.vue";
+import router from "@/router";
+import { ArrowLeftIcon } from "@radix-icons/vue";
+
+const enterCode = () => {
+  router.push('/verify-code')
+}
 </script>
 
 <template>
@@ -21,8 +25,17 @@ import AuthLayout from "@/pages/auth/layout/AuthLayout.vue";
 
     </template>
     <div class="text-center text-sm max-w-[360px] w-full mx-auto">
-      <Button type="submit" class="w-full mt-3 mb-8"> Enter code manually </Button>
-      <RouterLink to="/signup" class="underline">Back to Sign up</RouterLink>
+      <Button
+        type="submit"
+        class="w-full mt-3 mb-8"
+        @click="enterCode"
+      > 
+        Enter code manually 
+      </Button>
+      <RouterLink to="/signup" class="flex items-center justify-center gap-2 font-semibold">
+        <ArrowLeftIcon class="h-12 stroke-gray-800" />
+        Back to Sign up
+      </RouterLink>
     </div>
   </AuthLayout>
 </template>

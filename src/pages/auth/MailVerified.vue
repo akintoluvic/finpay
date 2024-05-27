@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import AuthLayout from "@/pages/auth/layout/AuthLayout.vue";
+import router from "@/router";
 import { ArrowLeftIcon } from '@radix-icons/vue'
+
+const goToDashboard = () => {
+  router.push('/dashboard')
+}
 </script>
 
 <template>
@@ -23,15 +26,20 @@ import { ArrowLeftIcon } from '@radix-icons/vue'
 
     </template>
     <div class="text-center text-sm max-w-[360px] w-full mx-auto">
-      <Button type="submit" class="w-full mt-2 bg-violet-700 hover:bg-violet-800"> Continue </Button>
+      <Button
+        type="submit" 
+        class="w-full mt-2 bg-violet-700 hover:bg-violet-800"
+        @click="goToDashboard"
+      > 
+        Continue 
+      </Button>
       <span class="block my-8">Didn't receive the email?
         <RouterLink to="/signup" class="font-semibold">Click to resend</RouterLink>
       </span>
-      <span class="flex items-center justify-center my-8">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-        <ArrowLeftIcon class="h-12 text-blue-700" />
-        <RouterLink to="/signup" class="ml-2 font-semibold">Back to Sign up</RouterLink>
-      </span>
+      <RouterLink to="/signup" class="flex items-center justify-center gap-2 font-semibold">
+        <ArrowLeftIcon class="h-12 stroke-gray-800" />
+        Back to Sign up
+      </RouterLink>
     </div>
   </AuthLayout>
 </template>

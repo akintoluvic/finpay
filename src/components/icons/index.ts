@@ -16,6 +16,7 @@ export { default as CardIcon } from './Card.vue'
 
 export { default as SearchIcon } from './more-icons/Search.vue'
 export { default as FilterIcon } from './more-icons/Filter.vue'
+export { default as SuccessIcon } from './more-icons/Success.vue'
 
 
 export { default as AllAccountsIcon } from './currency/All.vue'

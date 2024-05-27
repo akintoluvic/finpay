@@ -33,6 +33,19 @@ const routes = [
         ]
       },
       { path: 'transactions', component: () => import('@/pages/dashboard/transactions/Transactions.vue') },
+      { 
+        path: 'profile', 
+        children: [
+          { 
+            path: 'user', 
+            component: () => import('@/pages/dashboard/profile/UserProfile.vue'),
+            alias: ['/dashboard/profile'] 
+          },
+          { path: 'beneficiaries', component: () => import('@/pages/dashboard/profile/Beneficiaries.vue') },
+          { path: 'Identification', component: () => import('@/pages/dashboard/profile/Identification.vue') },
+          { path: 'security', component: () => import('@/pages/dashboard/profile/Security.vue') },
+        ]
+      },
     ], 
   },
 ]

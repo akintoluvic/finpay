@@ -22,13 +22,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { ChevronRightIcon } from "@radix-icons/vue";
+import router from "@/router";
+import { ChevronRightIcon, DownloadIcon, PersonIcon } from "@radix-icons/vue";
+import { watch } from "fs";
 import { shallowRef } from "vue";
 
 defineProps<{
   title: string;
   greeting?: string
+  isProfile?: boolean
 }>();
+
 
 
 const links = shallowRef({
@@ -54,13 +58,22 @@ const links = shallowRef({
   },
 })
 
+const profileLinks = {
+  profile: '/dashboard/profile',
+  beneficiaries: '/dashboard/profile/beneficiaries',
+  security: '/dashboard/profile/security',
+  identification: '/dashboard/profile/identification',
+}
 
 </script>
 <template>
   <main class="flex bg-background place-items-center">
     <div class="w-[280px] bg-primary h-screen rounded-r-2xl">
       <LogoWhite class="mx-auto mt-[42px] mb-10" />
-      <div class="px-4 h-[calc(100vh-153px)] flex flex-col gap-y-6 pt-12 border-t border-primary-light">
+      <div 
+        v-if="!isProfile"
+        class="px-4 h-[calc(100vh-153px)] flex flex-col gap-y-6 pt-12 border-t border-primary-light"
+      >
         <RouterLink 
             v-for="(link, key) in links"
             :key="link.path"
@@ -71,6 +84,7 @@ const links = shallowRef({
           <component :is="link.icon" />
           <span>{{ key }}</span>
         </RouterLink>
+        
         <RouterLink to="/dashboard/profile"
           class="flex items-center gap-x-4 px-4 mt-auto border-t pt-6 text-sm text-white"
         >
@@ -84,7 +98,20 @@ const links = shallowRef({
               olivia@untitledui.com
             </span>
           </div>
-          <ChevronRightIcon class="size-6 ml-auto self-start" />
+          <DownloadIcon class="size-6 ml-auto self-start -rotate-90" />
+        </RouterLink>
+      </div>
+      <div v-else class="px-4 h-[calc(100vh-153px)] flex flex-col gap-y-6 pt-12 border-t border-primary-light">
+        <RouterLink 
+            v-for="(link, key) in profileLinks"
+            :key="link"
+            :to="link"
+            activeClass="bg-primary-light"
+            class="flex items-center gap-3 capitalize text-white py-2 px-3 hover:bg-primary-light rounded-[6px]"
+            :class="key !== 'profile' ? 'ml-10' : ''"
+          >
+          <PersonIcon v-if="key === 'profile'" />
+          <span>{{ key }}</span>
         </RouterLink>
       </div>
     </div>

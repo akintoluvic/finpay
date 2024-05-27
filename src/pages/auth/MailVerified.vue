@@ -14,6 +14,7 @@ const goToDashboard = () => {
     title="Email verified"
     description="Your password has been successfully reset. Click below to log in magically."
     :widthSmall="true"
+    :showLogo="false"
   >
     <template v-slot:image>
       <!-- content for the header slot -->

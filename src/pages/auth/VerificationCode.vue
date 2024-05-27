@@ -23,6 +23,7 @@ const verifyCode = () => {
     title="Check your email"
     description="We sent a verification link to olivia@untitledui.com"
     :widthSmall="true"
+    :showLogo="false"
   >
     <template v-slot:image>
       <!-- content for the header slot -->

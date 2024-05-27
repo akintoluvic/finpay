@@ -22,7 +22,7 @@ const delegatedProps = computed(() => {
       'inline-flex items-center justify-center ',
       props.class,
       !!props.myStyle
-        ? 'bg-secondary-foreground/50 '
+        ? ''
         : 'h-9 rounded-lg bg-slate-100 p-1 text-slate-500 dark:bg-slate-800 dark:text-slate-400',
     )"
   >

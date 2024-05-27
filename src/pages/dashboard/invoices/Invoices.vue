@@ -31,7 +31,7 @@ import {
     </div>
 
     <div class="w-full rounded-lg overflow-hidden bg-white border border-border shadow shadow-shadow">
-    <Tabs default-value="account" class="w-full">
+    <Tabs default-value="all" class="w-full">
       <TabsList class="grid w-full grid-cols-6" my-style>
         <TabsTrigger value="all" my-style>
           All invoices
@@ -62,7 +62,7 @@ import {
           draft
         </div>
       </TabsContent>
-      <TabsContent value="due">
+      <TabsContent value="pending">
         <div class="p-4">
           due
         </div>

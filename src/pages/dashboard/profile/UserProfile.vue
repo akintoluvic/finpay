@@ -139,9 +139,26 @@ const goBack = () => {
                   <FormMessage />
                 </FormItem>
               </FormField>
-              <Button type="submit">
+              <FormField v-slot="{ componentField }" name="physicalAddress" :validate-on-blur="!isFieldDirty">
+                <FormItem>
+                  <FormLabel>Physical Address*</FormLabel>
+                  <!-- <FormControl>
+                    <Input type="text" placeholder="24, Tech Expert" v-bind="componentField" />
+                  </FormControl> -->
+                  <FormControl>
+                    <div class="relative w-full items-center">
+                    <Input type="text" placeholder="24, Tech Expert" v-bind="componentField" class="pr-10" />
+                    <span class="absolute end-0 inset-y-0 border-l text-primary my-2 flex items-center justify-center px-4 mr-0.5">
+                      <div>Edit</div>
+                    </span></div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              </FormField>
+              <!-- <span>
+              <Button type="submit" class="w-full mt-8">
                 Submit
-              </Button>
+              </Button></span> -->
             </form>
         </div>
       </Card>

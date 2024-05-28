@@ -16,6 +16,8 @@ export const badgeVariants = cva(
         outline: 'text-slate-950 dark:text-slate-50',
         success:
           'border-green bg-green-foreground text-green shadow hover:bg-green-foreground/80 dark:bg-green-900 dark:text-slate-50 dark:hover:bg-green-900/80',
+        primary:
+          'border-primary/30 bg-primary/5 text-primary shadow hover:bg-primary-foreground/80 dark:bg-primary-900 dark:text-slate-50 dark:hover:bg-primary-900/80',
 
       },
     },

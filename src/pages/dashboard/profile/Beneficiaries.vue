@@ -5,7 +5,8 @@ import router from "@/router";
 import { ArrowRightIcon, ChevronLeftIcon, PlusIcon } from "@radix-icons/vue";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SearchIcon } from "@/components/icons";
+import { NgnIcon, SearchIcon } from "@/components/icons";
+import { Badge } from "@/components/ui/badge";
 
 const goBack = () => {
   router && router.go(-1)
@@ -43,6 +44,37 @@ const goBack = () => {
             <p class="font-medium">Olivia Rhye</p>
           </div>
           <div class="h-[1px] bg-border text-border" />
+
+          <!-- Beneficiaries list -->
+          <div class="grid grid-cols-2 grid-flow-dense gap-10">
+            <div 
+              v-for="beneficiary in 5"
+              :key="beneficiary"
+              class="flex flex-col gap-4 border rounded-lg p-6"
+            >
+              <div class="flex justify-between items-center">
+                <Badge variant="primary" class="px-4 py-1 shadow-white">Default</Badge>
+                <span class="text-xs text-muted-foreground">
+                  Bank
+                </span>
+              </div>
+              <div
+                class="flex items-center gap-x-4"
+              >
+                <NgnIcon class="size-10" />
+                <div class="flex flex-col text-left">
+                  <p class="font-semibold">Nnabuife Elijah  </p>
+                  <span class="text-xs text-muted-foreground">
+                    0427740634
+                  </span>
+                  <span class="text-xs text-muted-foreground">
+                    Guaranty Trust Bank
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </Card>
       <button @click="goBack" class="flex gap-2 items-center -mt-2">

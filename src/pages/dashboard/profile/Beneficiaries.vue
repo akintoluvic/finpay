@@ -12,8 +12,6 @@ const goBack = () => {
   router && router.go(-1)
 }
 
-
-
 </script>
 <template>
   <DashboardLayout
@@ -36,14 +34,7 @@ const goBack = () => {
       </Button>
     </div>
       <Card title="Manage Beneficiaries">
-        <div class="flex flex-col gap-8 px-8 pb-10 pt-8">
-          <div class="flex items-center gap-4 text-[32px]">
-            <div class="w-[72px] aspect-square grid place-items-center rounded-lg text-primary font-semibold bg-primary/5">
-              OR
-            </div>
-            <p class="font-medium">Olivia Rhye</p>
-          </div>
-          <div class="h-[1px] bg-border text-border" />
+        <div class="flex flex-col gap-8 px-8 py-10">
 
           <!-- Beneficiaries list -->
           <div class="grid grid-cols-2 grid-flow-dense gap-10">

@@ -128,33 +128,33 @@ const profileLinks = {
               <DownIcon />
               <span class="text-muted">Quick Actions</span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent class="w-40">
+            <DropdownMenuContent class="w-48 font-semibold">
               <DropdownMenuLabel>
-                <div class="flex items-center gap-2 text-primary">
-                  <SendIcon />
+                <RouterLink to="/dashboard/wallets/send" class="flex items-center gap-2">
+                  <SendIcon class="text-primary" />
                   <span>Send Money</span>
-                </div>
+                </RouterLink>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <div class="flex items-center gap-2 text-primary">
-                  <FundIcon />
+                <RouterLink to="/dashboard/wallets/fund" class="flex items-center gap-2">
+                  <FundIcon class="text-primary" />
                   <span>Fund Wallet</span>
-                </div>
+                </RouterLink>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <div class="flex items-center gap-2 text-primary">
-                  <ConvertIcon />
+                <RouterLink to="/dashboard/wallets/convert" class="flex items-center gap-2">
+                  <ConvertIcon class="text-primary" />
                   <span>Convert Funds</span>
-                </div>
+                </RouterLink>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <div class="flex items-center gap-2 text-primary">
-                  <InvoicesIcon />
+                <RouterLink to="/dashboard/invoices/new" class="flex items-center gap-2">
+                  <InvoicesIcon class="text-primary" />
                   <span>Create new invoice</span>
-                </div>
+                </RouterLink>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

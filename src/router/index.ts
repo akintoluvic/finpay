@@ -30,6 +30,7 @@ const routes = [
         children: [
           { path: '', component: () => import('@/pages/dashboard/wallets/Wallets.vue'), },
           { path: 'send', component: () => import('@/pages/dashboard/wallets/SendMoney.vue'), },
+          {path: 'convert', component: () => import('@/pages/dashboard/wallets/ConvertFunds.vue')},
         ]
       },
       { path: 'transactions', component: () => import('@/pages/dashboard/transactions/Transactions.vue') },

@@ -90,7 +90,7 @@ const accountDetails = ref<AccountDetailsProps>({
           <SendIcon />
           <span>Send Money</span>
         </RouterLink>
-        <RouterLink to="" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
+        <RouterLink to="wallets/convert" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
           <ConvertIcon />
           <span>Convert Funds</span>
         </RouterLink>

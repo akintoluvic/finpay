@@ -8,6 +8,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@radix-icons/vue";
 import router from "@/router";
 import { ChevronLeftIcon } from "@radix-icons/vue";
 import { ref } from "vue";
+import SuccessOrFail from "@/components/general/SuccessOrFail.vue";
 
 type InvoiceStatus = 'success' | 'error' | 'not-set'
 
@@ -62,21 +63,14 @@ const generateAnotherInvoice = () => {
       <ArrowRightIcon class="stroke-white" />
     </Button>
 
-    <Card title="Invoice Generated" v-if="invoiceStatus === 'success'" class="max-w-[607px]">
-      <div class="flex flex-col items-center gap-2 max-w-96 mx-auto pt-12">
-          <SuccessIcon />
-        <Button class="w-full text-primary bg-primary/5 hover:text-white font-semibold gap-2 mb-4 mt-10">
-          Copy invoice link
-        </Button>
-        <Button @click="generateAnotherInvoice" class="w-full font-semibold gap-2 mb-14">
-          Create another invoice
-          <ArrowRightIcon class="stroke-white" />
-        </Button>
-        <RouterLink to="/dashboard/home" class="text-center text-primary mb-12 gap-2 hover:underline">
-          Back to Dashboard
-        </RouterLink>
-      </div>
-    </Card>
+    <SuccessOrFail 
+      v-if="invoiceStatus === 'success'"
+      cardTitle="Invoice Generated"
+      :callbackFn="generateAnotherInvoice" 
+      :callbackLabel="'Generate Another Invoice'"
+      :copyBtnLabel="'Copy Invoice Link'"
+      :copyValue="'https://google.com'"
+    />
 
     <button @click="goBack" class="w-full flex items-center gap-2">
       <ChevronLeftIcon class="size-6" />

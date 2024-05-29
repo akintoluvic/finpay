@@ -19,6 +19,35 @@ import {
 } from '@/components/ui/dropdown-menu'
 import AccountDetailsModal, { AccountDetailsProps } from "@/components/all-modals/AccountDetailsModal.vue";
 
+const selectedCurrencyIndex = ref(0)
+
+const currencies = [
+  {
+    name: "NGN",
+    fullName: "Nigerian Naira",
+    symbol: "₦",
+    icon: NgnIcon,
+  },
+  {
+    name: "USD",
+    fullName: "US Dollar",
+    symbol: "$",
+    icon: UsdIcon,
+  },
+  {
+    name: "GBP",
+    fullName: "British Pound",
+    symbol: "£",
+    icon: GbpIcon,
+  },
+  {
+    name: "EUR",
+    fullName: "Euro",
+    symbol: "€",
+    icon: EuroIcon,
+  },
+]
+
 const transactions = ref([
   {
     date: "Aug 03",
@@ -104,8 +133,8 @@ const accountDetails = ref<AccountDetailsProps>({
           <template #action-button>
             <div class="flex items-center justify-between w-full py-0.5 px-2">
               <div class="flex items-center gap-2 mr-auto">
-                <UsdIcon />
-                <p class="font-bold">USD ($)</p>
+                <component :is="currencies[selectedCurrencyIndex].icon" />
+                <p class="font-bold">{{ currencies[selectedCurrencyIndex].name }} ({{ currencies[selectedCurrencyIndex].symbol }})</p>
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger>
@@ -114,34 +143,22 @@ const accountDetails = ref<AccountDetailsProps>({
                     <CaretSortIcon />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent class="w-44">
-                  <DropdownMenuLabel>
+                <DropdownMenuContent class="w-48 px-3 py-2">
+                  <span
+                    v-for="(currency, index) in currencies"
+                    :key="currency.name"
+                  >
+                  <DropdownMenuLabel
+                    @click="selectedCurrencyIndex = index"
+                    class="cursor-pointer hover:bg-muted-background/15"
+                  >
                     <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
-                      <UsdIcon />
-                      <span>US Dollar ($)</span>
+                      <component :is="currency.icon" />
+                      <span>{{ currency.fullName }} ({{ currency.symbol }})</span>
                     </div>
                   </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuLabel>
-                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
-                      <GbpIcon />
-                      <span>British Pounds (£)</span>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuLabel>
-                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
-                      <EuroIcon />
-                      <span>Euro (€)</span>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuLabel>
-                    <div class="flex items-center gap-2 text-xs font-bold text-muted-foreground">
-                      <NgnIcon />
-                      <span>Nigerian Naira (₦)</span>
-                    </div>
-                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator v-if="currencies.length - 1 > index" />
+                  </span>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>

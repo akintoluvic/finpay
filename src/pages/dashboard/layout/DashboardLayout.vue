@@ -22,9 +22,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import router from "@/router";
-import { ChevronRightIcon, DownloadIcon, PersonIcon } from "@radix-icons/vue";
-import { watch } from "fs";
 import { shallowRef } from "vue";
 
 defineProps<{

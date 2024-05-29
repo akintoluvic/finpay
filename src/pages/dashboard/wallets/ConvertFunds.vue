@@ -2,8 +2,8 @@
 import Card from "@/components/Card.vue";
 import DashboardLayout from "../layout/DashboardLayout.vue";
 import { Button } from "@/components/ui/button";
-import { ConvertIcon, EuroIcon, GbpIcon, HomeIcon, NgnIcon, UsdIcon } from "@/components/icons";
-import { ArrowRightIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from "@radix-icons/vue";
+import { ConvertIcon, EuroIcon, GbpIcon, NgnIcon, UsdIcon } from "@/components/icons";
+import { ArrowRightIcon, ChevronDownIcon, ChevronLeftIcon } from "@radix-icons/vue";
 import router from "@/router";
 import { ref } from "vue";
 import SuccessOrFail from "@/components/general/SuccessOrFail.vue";
@@ -20,7 +20,6 @@ import {
 } from '@/components/ui/dropdown-menu'
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,

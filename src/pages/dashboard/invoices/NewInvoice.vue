@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { Input } from "@/components/ui/input";
 import DashboardLayout from "../layout/DashboardLayout.vue";
-import { FilterIcon, InvoicesWhiteIcon, SearchIcon, SuccessIcon } from "@/components/icons";
+import { InvoicesWhiteIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card.vue";
-import { ArrowLeftIcon, ArrowRightIcon } from "@radix-icons/vue";
+import { ArrowRightIcon } from "@radix-icons/vue";
 import router from "@/router";
 import { ChevronLeftIcon } from "@radix-icons/vue";
 import { ref } from "vue";

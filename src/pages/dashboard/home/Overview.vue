@@ -249,10 +249,12 @@ const accountDetails = ref<AccountDetailsProps>({
             </div>
             <div class="text-transparent">.</div>
 
-            <Button class="item-center flex gap-2 font-semibold">
-              <InvoicesWhiteIcon />
-              Create new invoice
-            </Button>
+            <RouterLink to="/dashboard/invoices/new" >
+              <Button class="flex item-center w-full gap-2 font-semibold">
+                <InvoicesWhiteIcon />
+                Create new invoice
+              </Button>
+            </RouterLink>
           </div>
         </Card>
       </div>

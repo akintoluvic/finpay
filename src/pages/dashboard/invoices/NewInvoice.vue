@@ -3,7 +3,7 @@ import DashboardLayout from "../layout/DashboardLayout.vue";
 import { InvoicesWhiteIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card.vue";
-import { ArrowRightIcon } from "@radix-icons/vue";
+import { ArrowRightIcon, PlusIcon } from "@radix-icons/vue";
 import router from "@/router";
 import { ChevronLeftIcon } from "@radix-icons/vue";
 import { ref } from "vue";
@@ -14,18 +14,45 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import DatePicker from "@/components/general/DatePicker.vue";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
-type InvoiceStatus = 'success' | 'error' | 'not-set'
+type InvoiceStatus = 'success' | 'error' | 'not-set' | 'customer'
 
-const invoiceStatus = ref<InvoiceStatus>('not-set');
+const invoiceStatus = ref<InvoiceStatus>('customer');
+const selectedCustomer = ref<string | null>(null);
+const customersList = ref([
+  'Olosnsj Asjdj',
+  'Banand Loij',
+  'Njnsj Asjdj',
+  'Sjnsj Asjdj',
+])
 
 const goBack = () => {
-  invoiceStatus.value = 'not-set'
+  invoiceStatus.value = invoiceStatus.value === 'success' ? 'not-set' : 'customer'
   router && router.go(-1)
 }
 
 const generateInvoice = () => {
-  invoiceStatus.value = 'success'
+  if(selectedCustomer.value === null) return
+  switch (invoiceStatus.value) {
+    case 'customer':
+      invoiceStatus.value = 'not-set'
+      break;
+    case 'not-set':
+      invoiceStatus.value = 'success'
+      break;
+  
+    default:
+      break;
+  }
   router.push({query: {status: invoiceStatus.value}})
 }
 
@@ -40,11 +67,50 @@ const generateAnotherInvoice = () => {
     title="New Invoice"
   >
   <div class="flex flex-col gap-10 pb-10">
-    <div v-if="invoiceStatus === 'not-set'" class="grid grid-cols-2 gap-8">
+    <div v-if="invoiceStatus === 'customer'">
+      <Card title="Customer’s Information" class="max-w-lg">
+        <div class="flex flex-col gap-2 px-8 pt-6 pb-8">
+          Customer*
+          <Select v-model="selectedCustomer">
+            <SelectTrigger class="py-5 border-secondary-foreground/30">
+              <SelectValue placeholder="Select a fruit" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel 
+                  class="text-primary flex items-center gap-2"
+                >
+                  <PlusIcon class=" bg-primary text-white rounded-full" />
+                  Add new recipient
+                </SelectLabel>
+                <SelectItem 
+                  v-for="customer in customersList"
+                  :key="customer"
+                  :value="customer"
+                >
+                  {{ customer }}
+                </SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </Card>
+    </div>
+    <div
+      v-if="invoiceStatus === 'not-set'" 
+      class="grid grid-cols-2 gap-8"
+    >
       <div class="flex flex-col gap-10">
         <Card title="Create Invoice">
-          <div class="flex flex-col gap-6 px-8 pt-6 pb-8">
-            Create Invoice
+          <div class="flex flex-col gap-4 px-8 pt-6 pb-8">
+            Customer’s Name
+            <Separator />
+            <div class="flex items-center gap-5">
+              <div class="capitalize h-8 w-8 grid place-items-center rounded-full bg-primary text-white">
+                {{ selectedCustomer?.split('')[0] }}
+              </div>
+              <div>{{ selectedCustomer }}</div>
+            </div>
             </div>
         </Card>
         <Card title="Invoice Information">
@@ -109,7 +175,7 @@ const generateAnotherInvoice = () => {
     </div>
 
     <Button 
-      v-if="invoiceStatus === 'not-set'"
+      v-if="invoiceStatus !== 'success'"
       @click="generateInvoice"
       class="w-full font-semibold gap-2 mt-16"
     >

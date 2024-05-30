@@ -23,17 +23,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import InvoiceCustomerInfo from "@/components/all-modals/InvoiceCustomerInfo.vue";
 
 type InvoiceStatus = 'success' | 'error' | 'not-set' | 'customer'
 
 const invoiceStatus = ref<InvoiceStatus>('customer');
 const selectedCustomer = ref<string | null>(null);
+const customerName = ref('')
 const customersList = ref([
   'Olosnsj Asjdj',
   'Banand Loij',
   'Njnsj Asjdj',
   'Sjnsj Asjdj',
 ])
+
+const addCustomer = () => {
+  customersList.value.push(customerName.value)
+  customerName.value = ''
+}
 
 const goBack = () => {
   invoiceStatus.value = invoiceStatus.value === 'success' ? 'not-set' : 'customer'
@@ -78,10 +85,38 @@ const generateAnotherInvoice = () => {
             <SelectContent>
               <SelectGroup>
                 <SelectLabel 
-                  class="text-primary flex items-center gap-2"
+                  class="text-primary cursor-pointer"
                 >
-                  <PlusIcon class=" bg-primary text-white rounded-full" />
-                  Add new recipient
+                  <InvoiceCustomerInfo
+                    title="Customer’s Information"
+                  >
+                    <template #trigger>
+                      <span class="flex items-center gap-2">
+                        <PlusIcon class=" bg-primary text-white rounded-full" />
+                        Add new recipient
+                      </span>
+                    </template>
+                    <div class="grid gap-10 mt-10 py-4">
+                      <div class="flex flex-col gap-4">
+                        <Label for="name">
+                          Customer’s Name*
+                        </Label>
+                        <Input id="name" v-model="customerName" class="col-span-3" />
+                      </div>
+                      <div class="flex flex-col gap-4">
+                        <Label for="email">
+                          Customer’s Email Address*
+                        </Label>
+                        <Input type="email" id="email" v-model="customerName" class="col-span-3" />
+                      </div>
+                    </div>
+                    <template #close>
+                      <Button type="submit" @click="addCustomer" class="w-full flex gap-2 mt-14">
+                        Create new customer
+                        <ArrowRightIcon class="size-4 stroke-white" />
+                      </Button>
+                    </template>
+                  </InvoiceCustomerInfo>
                 </SelectLabel>
                 <SelectItem 
                   v-for="customer in customersList"

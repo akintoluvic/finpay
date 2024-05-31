@@ -44,7 +44,7 @@ const verifyCode = () => {
       >
         <PinInputGroup class="gap-1">
           <!-- @ts-ignore -->
-          <template v-for="index in 4" :key="index">
+          <template v-for="(index, id) in 4" :key="id">
             <PinInputInput
               class="rounded-md border placeholder:text-muted-foreground/5"
               :index="index"

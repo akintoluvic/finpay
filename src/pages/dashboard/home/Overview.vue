@@ -300,10 +300,12 @@ const accountDetails = ref<AccountDetailsProps>({
               class="mb-10 max-w-60 text-center text-sm text-muted-foreground"
               >Once you create a card, the information appears here</span
             >
-            <Button class="w-full font-semibold gap-2">
-              <CardWhiteIcon />
-              Create new card
-            </Button>
+            <RouterLink class="w-full" to="/dashboard/cards" >
+              <Button class="w-full font-semibold gap-2">
+                <CardWhiteIcon />
+                Create new card
+              </Button>
+            </RouterLink>
           </div>
         </Card>
       </div>

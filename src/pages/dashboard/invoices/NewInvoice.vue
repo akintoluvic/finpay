@@ -28,7 +28,7 @@ import RightModal from "@/components/all-modals/RightModal.vue";
 type InvoiceStatus = 'success' | 'error' | 'not-set' | 'customer'
 
 const invoiceStatus = ref<InvoiceStatus>('customer');
-const selectedCustomer = ref<string | null>(null);
+const selectedCustomer = ref<string>('');
 const customerName = ref('')
 const customersList = ref([
   'Olosnsj Asjdj',

@@ -35,8 +35,6 @@ const sendData = ref({
   description: '',
 })
 
-const selectedCustomer = ref<string | null>(null);
-const customerName = ref('')
 const customersList = ref([
   'Olosnsj Asjdj',
   'Banand Loij',

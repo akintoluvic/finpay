@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import { ConvertIcon, EuroIcon, GbpIcon, NgnIcon, UsdIcon } from "@/components/icons";
 import { ArrowRightIcon, ChevronDownIcon } from "@radix-icons/vue";
-import router from "@/router";
 import { ref } from "vue";
 import { h } from 'vue'
 import { useForm } from 'vee-validate'

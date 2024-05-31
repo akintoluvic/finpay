@@ -9,6 +9,7 @@ defineProps<{
   copyBtnLabel?: string
   copyValue?: string
   cardTitle: string
+  message?: string
 }>()
 
 </script>
@@ -16,7 +17,8 @@ defineProps<{
 <template>
   <Card :title="cardTitle" class="max-w-[607px]">
       <div class="flex flex-col items-center gap-2 max-w-96 mx-auto pt-12">
-          <SuccessIcon />
+        <SuccessIcon />
+        <h3 v-if="message" class="text-2xl font-semibold mt-10">{{ message }}</h3>
         <Button v-if="copyBtnLabel" class="w-full text-primary bg-primary/5 hover:text-white font-semibold gap-2 mb-4 mt-10">
           {{ copyBtnLabel }}
         </Button>

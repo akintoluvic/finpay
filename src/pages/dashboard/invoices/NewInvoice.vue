@@ -23,7 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import InvoiceCustomerInfo from "@/components/all-modals/InvoiceCustomerInfo.vue";
+import RightModal from "@/components/all-modals/RightModal.vue";
 
 type InvoiceStatus = 'success' | 'error' | 'not-set' | 'customer'
 
@@ -87,7 +87,7 @@ const generateAnotherInvoice = () => {
                 <SelectLabel 
                   class="text-primary cursor-pointer"
                 >
-                  <InvoiceCustomerInfo
+                  <RightModal
                     title="Customer’s Information"
                   >
                     <template #trigger>
@@ -107,7 +107,7 @@ const generateAnotherInvoice = () => {
                         <Label for="email">
                           Customer’s Email Address*
                         </Label>
-                        <Input type="email" id="email" v-model="customerName" class="col-span-3" />
+                        <Input type="email" id="email" class="col-span-3" />
                       </div>
                     </div>
                     <template #close>
@@ -116,7 +116,7 @@ const generateAnotherInvoice = () => {
                         <ArrowRightIcon class="size-4 stroke-white" />
                       </Button>
                     </template>
-                  </InvoiceCustomerInfo>
+                  </RightModal>
                 </SelectLabel>
                 <SelectItem 
                   v-for="customer in customersList"
@@ -152,9 +152,16 @@ const generateAnotherInvoice = () => {
           <div class="flex flex-col gap-6 px-8 pt-6 pb-8">
             Invoice Information
             <Separator />
-            <DatePicker />
+            <div class="w-full flex flex-col gap-2">
+              <Label for="issue-date">Issue Date*</Label>
+              <DatePicker id="issue-date" />
+            </div>
             <Separator />
-            <DatePicker />
+            <div class="w-full flex flex-col gap-2">
+              <Label for="due-date">Due Date*</Label>
+              <DatePicker id="due-date" />
+            </div>
+            
           </div>
         </Card>
 
@@ -174,17 +181,17 @@ const generateAnotherInvoice = () => {
         <Card title="Item Description">
           <div class="flex flex-col gap-6 px-8 pt-6 pb-8">
             
-            <div class="grid w-full gap-1.5">
+            <div class="grid gap-2">
               <Label for="description">Item Description*</Label>
               <Textarea id="description" placeholder="Item Description" />
             </div>
             <Separator />
-            <div class="grid w-full items-center gap-1.5">
+            <div class="grid gap-2">
               <Label for="quantity">Quantity*</Label>
               <Input id="quantity" type="quantity" placeholder="quantity" />
             </div>
             <Separator />
-            <div class="grid w-full items-center gap-1.5">
+            <div class="grid gap-2">
               <Label for="perquantity">Amount per Quantity*</Label>
               <Input id="perquantity" type="perquantity" placeholder="perquantity" />
             </div>

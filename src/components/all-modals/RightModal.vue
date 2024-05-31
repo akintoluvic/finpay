@@ -23,7 +23,7 @@ defineProps<{
     <SheetTrigger as-child>
       <slot name="trigger" />
     </SheetTrigger>
-    <SheetContent class="w-1/2">
+    <SheetContent class="w-1/2 overflow-y-scroll">
       <SheetHeader>
         <SheetTitle class="text-[30px]">
           <span class="flex items-center gap-6">

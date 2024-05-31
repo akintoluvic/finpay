@@ -16,7 +16,6 @@ const df = new DateFormatter('en-US', {
   dateStyle: 'short',
 })
 
-const firstName = defineModel('firstName')
 const value = ref<DateValue>()
 </script>
 

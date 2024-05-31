@@ -43,7 +43,7 @@ const verifyCode = () => {
         @complete="handleComplete"
       >
         <PinInputGroup class="gap-1">
-          <template v-for="(index, id) in 4" :key="id">
+          <template v-for="(id, index) in 4" :key="id">
             <PinInputInput
               class="rounded-md border placeholder:text-muted-foreground/5"
               :index="index"

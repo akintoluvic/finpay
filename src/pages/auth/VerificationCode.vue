@@ -43,13 +43,12 @@ const verifyCode = () => {
         @complete="handleComplete"
       >
         <PinInputGroup class="gap-1">
-          <!-- @ts-ignore -->
           <template v-for="(index, id) in 4" :key="id">
             <PinInputInput
               class="rounded-md border placeholder:text-muted-foreground/5"
               :index="index"
             />
-            <template v-if="index !== 3">
+            <template v-if="id !== 3">
               &nbsp;
             </template>
           </template>

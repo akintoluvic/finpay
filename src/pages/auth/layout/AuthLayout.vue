@@ -9,7 +9,7 @@ defineProps<{
 }>();
 </script>
 <template>
-  <div class="flex min-h-screen h-full md:bg-[#7105E9] md:px-6 place-items-center">
+  <div class="flex min-h-screen h-full md:bg-[#7105E9] md:px-14 place-items-center">
     <div
       class=" mx-auto md:my-auto h-auto md:max-w-[774px] w-full pt-[71px] md:pb-20 px-7 lg:px-14 bg-white md:rounded-2xl grid gap-6"
     >

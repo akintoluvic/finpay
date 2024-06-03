@@ -16,7 +16,7 @@ const createAccount = () => {
     description="Welcome to the future of Savings & Investments"
     :showLogo="true"
   >
-    <div class="grid grid-cols-2 gap-y-8 gap-x-6 mt-5">
+    <div class="grid md:grid-cols-2 gap-y-8 gap-x-6 mt-5">
       <div class="grid gap-2">
         <Label for="first-name">First Name*</Label>
         <Input id="first-name" type="text" placeholder="Enter your first name" required />
@@ -45,7 +45,7 @@ const createAccount = () => {
     <span class="inline-block text-sm mb-5">
       *Must be at least 8 characters
     </span>
-    <div class="text-center text-sm">
+    <div class="text-center text-sm mb-14 md:mb-0">
       <Button 
         @click="createAccount" 
         type="submit" 

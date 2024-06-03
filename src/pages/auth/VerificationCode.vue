@@ -55,7 +55,7 @@ const verifyCode = () => {
         </PinInputGroup>
       </PinInput>
     </div>
-    <div class="text-center text-sm max-w-[360px] w-full mx-auto">
+    <div class="text-center text-sm max-w-80 md:max-w-[360px] w-full mx-auto">
       <Button
         type="submit"
         class="w-full mt-2 bg-violet-700 hover:bg-violet-800"

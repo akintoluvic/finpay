@@ -72,28 +72,28 @@ const transactions = ref([
       <Card title="Transactions" class="">
         <div class="px-6">
           <table
-            class="px- my-3 w-full table-fixed text-xs text-muted-foreground"
+            class="w-full my-3 table-fixed text-xs text-muted-foreground"
           >
             <thead class="hidden text-left">
               <tr>
-                <th class="py-2 font-normal">Currency</th>
-                <th class="font-normal">Buying</th>
-                <th class="font-normal">Selling</th>
-                <th class="font-normal">Buying</th>
-                <th class="font-normal">Selling</th>
-                <th class="font-normal">Buying</th>
+                <th class="py-2 font-normal">Date</th>
+                <th class="font-normal">Recipient</th>
+                <th class="font-normal">Amount</th>
+                <th class="font-normal hidden sm:table-cell">Sender</th>
+                <th class="font-normal">Status</th>
+                <th class="font-normal hidden sm:table-cell">Type</th>
               </tr>
             </thead>
             <tbody>
               <tr
                 v-for="transaction in transactions"
                 :key="transaction.name"
-                class="border-b last-of-type:border-b-0"
+                class="border-b last-of-type:border-b-0 w-full"
               >
                 <td class="py-4">{{ transaction.date }}</td>
                 <td>{{ transaction.name }}</td>
                 <td>{{ transaction.amount }}</td>
-                <td>{{ transaction.sender }}</td>
+                <td class="hidden sm:table-cell">{{ transaction.sender }}</td>
                 <td>
                   <Badge
                     :variant="
@@ -107,7 +107,7 @@ const transactions = ref([
                     {{ transaction.status }}
                   </Badge>
                 </td>
-                <td>{{ transaction.type }}</td>
+                <td class="hidden sm:table-cell">{{ transaction.type }}</td>
               </tr>
             </tbody>
           </table>

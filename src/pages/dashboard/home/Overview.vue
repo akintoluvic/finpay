@@ -152,7 +152,7 @@ const accountDetails = ref<AccountDetailsProps>({
 
       <!-- Account Balance -->
       <Card title="Account Balance">
-        <div class="grid grid-cols-5 gap-4 px-8 pb-10 pt-8">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-8 pb-10 pt-8">
           <Card
             v-for="account in accounts"
             :key="account.name"
@@ -182,7 +182,7 @@ const accountDetails = ref<AccountDetailsProps>({
 
       <!-- Quick Actions -->
       <Card title="Quick Actions">
-        <div class="grid grid-cols-3 gap-4 px-8 py-8">
+        <div class="grid md:grid-cols-3 gap-4 px-8 py-8">
           <RouterLink
             v-for="action in quickActions"
             :key="action.title"
@@ -206,7 +206,7 @@ const accountDetails = ref<AccountDetailsProps>({
       </Card>
 
       <!-- Recieve Payments -->
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-4">
         <Card title="Recieve Payments">
           <div class="flex flex-col">
             <AccountDetailsModal 
@@ -260,8 +260,8 @@ const accountDetails = ref<AccountDetailsProps>({
       </div>
 
       <!-- Exchange Rates -->
-      <div class="grid grid-cols-3 gap-4">
-        <Card title="Exchange Rates" class="col-span-2">
+      <div class="grid md:grid-cols-3 gap-10 md:gap-4">
+        <Card title="Exchange Rates" class="md:col-span-2">
           <div class="px-6">
             <table
               v-for="rate in exchangeRates"

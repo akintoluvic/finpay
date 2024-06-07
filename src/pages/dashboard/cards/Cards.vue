@@ -2,7 +2,7 @@
 import Card from "@/components/Card.vue";
 import DashboardLayout from "../layout/DashboardLayout.vue";
 import { Button } from "@/components/ui/button";
-import { EmptyCardsList } from "@/components/icons";
+import { CardWhiteIcon, EmptyCardsList } from "@/components/icons";
 import { ref } from "vue";
 import RightModal from "@/components/all-modals/RightModal.vue";
 import { Label } from "@/components/ui/label";
@@ -79,7 +79,7 @@ const addCard = () => {
   <div class="max-w-2xl">
     <Card title="Cards">
       <div class="flex flex-col items-center gap-11 px-10 pb-12 pt-10">
-        <EmptyCardsList />
+        <EmptyCardsList class="w-full h-auto" />
 
         <RightModal
           title="New Card"

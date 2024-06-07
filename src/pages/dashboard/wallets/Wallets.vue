@@ -114,18 +114,23 @@ const accountDetails = ref<AccountDetailsProps>({
 <template>
   <DashboardLayout title="Wallets">
     <div class="flex flex-col gap-y-10 pb-12">
-      <div class="flex gap-6">
-        <RouterLink to="wallets/send" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
-          <SendIcon />
-          <span>Send Money</span>
+      <div class="flex flex-col sm:flex-row gap-6">
+        <RouterLink to="wallets/send" class="grid place-items-center sm:place-items-start gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
+          <span class="flex gap-2 items-center">
+            <SendIcon />
+            <span>Send Money</span>
+          </span>
         </RouterLink>
-        <RouterLink to="wallets/convert" class="flex items-center gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
-          <ConvertIcon />
-          <span>Convert Funds</span>
+        <RouterLink to="wallets/convert" class="grid place-items-center sm:place-items-start gap-2 text-primary px-4 py-2.5 border bg-primary/5 rounded-lg hover:bg-primary/10">
+          <span class="flex gap-2 items-center">
+            <ConvertIcon />
+            <span>Convert Funds</span>
+          </span>
+          
         </RouterLink>
       </div>
 
-      <div class="grid grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card
           title="Tasks"
           :heightSmall="true"
@@ -295,7 +300,7 @@ const accountDetails = ref<AccountDetailsProps>({
                 <td class="py-4">{{ transaction.date }}</td>
                 <td>{{ transaction.name }}</td>
                 <td>{{ transaction.amount }}</td>
-                <td>{{ transaction.sender }}</td>
+                <td class="hidden sm:table-cell">{{ transaction.sender }}</td>
                 <td>
                   <Badge
                     :variant="
@@ -309,7 +314,7 @@ const accountDetails = ref<AccountDetailsProps>({
                     {{ transaction.status }}
                   </Badge>
                 </td>
-                <td>{{ transaction.type }}</td>
+                <td class="hidden sm:table-cell">{{ transaction.type }}</td>
               </tr>
             </tbody>
           </table>

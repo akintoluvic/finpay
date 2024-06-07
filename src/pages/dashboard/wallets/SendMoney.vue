@@ -51,13 +51,12 @@ const newRecipient = ref({
 })
 
 const addRecipient = () => {
-  if(
-    !!newRecipient.value.type
+  let allFilled = !!newRecipient.value.type
     && !!newRecipient.value.accountName
     && !!newRecipient.value.accountNumber
     && !!newRecipient.value.bank
     && !!newRecipient.value.currency
-  ) return
+  if(!allFilled) return
   switch (newRecipient.value.step) {
     case 1:
       newRecipient.value.step += 1
@@ -179,7 +178,7 @@ const nextStep = () => {
 
                     <!-- Step 1 form -->
                     <div v-if="newRecipient.step === 1" class="grid gap-10 mt-10 py-4">
-                      <form-group class="flex flex-col gap-4">
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="currency">
                           Currency*
                         </Label>
@@ -199,8 +198,8 @@ const nextStep = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="recipient">
                           Recipient Type*
                         </Label>
@@ -220,8 +219,8 @@ const nextStep = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="bankd">
                           Bank Name*
                         </Label>
@@ -241,19 +240,19 @@ const nextStep = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="acc-number">
                           Account Number*
                         </Label>
                         <Input id="acc-number" v-model="newRecipient.accountNumber" class="" />
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="acc-name">
                           Account Name*
                         </Label>
                         <Input id="acc-name" v-model="newRecipient.accountName" class="" />
-                      </form-group>
+                      </fieldset>
                       <Button v-if="newRecipient.step === 1" @click="addRecipient" class="w-full flex gap-2 mt-10">
                         Continue
                         <ArrowRightIcon class="size-4 stroke-white" />
@@ -262,7 +261,7 @@ const nextStep = () => {
 
                     <!-- Step 2 form -->
                     <div v-if="newRecipient.step === 2" class="grid gap-10 mt-10 py-4">
-                      <form-group class="flex flex-col gap-4">
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="country">
                           Country*
                         </Label>
@@ -282,14 +281,14 @@ const nextStep = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="street">
                           Street Address*
                         </Label>
                         <Input id="street" class="" />
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="state">
                           State*
                         </Label>
@@ -309,8 +308,8 @@ const nextStep = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="city">
                           City*
                         </Label>
@@ -330,13 +329,13 @@ const nextStep = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                      </form-group>
-                      <form-group class="flex flex-col gap-4">
+                      </fieldset>
+                      <fieldset class="flex flex-col gap-4">
                         <Label for="post-code">
                           Postal Code*
                         </Label>
                         <Input id="post-code" class="" />
-                      </form-group>
+                      </fieldset>
                       
                     </div>
 

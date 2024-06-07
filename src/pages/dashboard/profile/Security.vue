@@ -23,12 +23,12 @@ const goBack = () => {
         <div class="flex flex-col gap-8 px-8 pb-10 pt-8 font-medium text-secondary">
           <div>Password</div>
           <div class="h-[1px] bg-border text-border" />
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col sm:flex-row gap-5 items-center justify-between">
             <span>Set a unique password to protect your account</span>
             <Button variant="outline" class="hover:bg-muted-foreground/10">Change Password</Button>
           </div>
           <div class="h-[1px] bg-border text-border" />
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col sm:flex-row gap-5 items-center justify-between">
             <span>Reset or change authentication method
               <br>
               (eg. Authy or Google Authentication) for this account 

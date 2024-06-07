@@ -63,7 +63,7 @@ const goBack = () => {
             <p class="font-medium">Olivia Rhye</p>
           </div>
           <div class="h-[1px] bg-border text-border" />
-          <form class="grid grid-cols-2 grid-flow-row-dense gap-x-16 gap-y-10" @submit="onSubmit">
+          <form class="grid drid sm:grid-cols-2 grid-flow-row-dense gap-x-16 gap-y-10" @submit="onSubmit">
               <FormField v-slot="{ componentField }" name="firstName" :validate-on-blur="!isFieldDirty">
                 <FormItem>
                   <FormLabel>First Name*</FormLabel>

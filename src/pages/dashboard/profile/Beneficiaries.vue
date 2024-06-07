@@ -19,25 +19,25 @@ const goBack = () => {
     :is-profile="true"
   >
     <div class="pb-14 flex flex-col gap-12">
-      <div class="flex gap-5">
-      <div class="relative w-full items-center">
-        <Input id="search" type="text" placeholder="Search..." class="pl-12 text-sm py-4 border-border placeholder:text-[#667085B2] placeholder:text-sm" />
-        <span class="absolute start-0 inset-y-0 flex items-center justify-center px-4">
-          <SearchIcon class="size-6 text-muted-foreground" />
-        </span>
-      </div>
-      <Button class="flex items-center text-primary text-base bg-white border border-primary hover:bg-muted-background gap-2">
-        <PlusIcon class="size-5 stroke-primary stroke-0.5" />
-        Add beneficiary
-        <ArrowRightIcon class=" stroke-primary" />
+      <div class="flex flex-col sm:flex-row gap-5">
+        <div class="relative w-full items-center">
+          <Input id="search" type="text" placeholder="Search..." class="pl-12 text-sm py-4 border-border placeholder:text-[#667085B2] placeholder:text-sm" />
+          <span class="absolute start-0 inset-y-0 flex items-center justify-center px-4">
+            <SearchIcon class="size-6 text-muted-foreground" />
+          </span>
+        </div>
+        <Button class="flex items-center text-primary text-base bg-white border border-primary hover:bg-muted-background gap-2">
+          <PlusIcon class="size-5 stroke-primary stroke-0.5" />
+          Add beneficiary
+          <ArrowRightIcon class=" stroke-primary" />
 
-      </Button>
-    </div>
-      <Card title="Manage Beneficiaries">
+        </Button>
+      </div>
+        <Card title="Manage Beneficiaries">
         <div class="flex flex-col gap-8 px-8 py-10">
 
           <!-- Beneficiaries list -->
-          <div class="grid grid-cols-2 grid-flow-dense gap-10">
+          <div class="grid sm:grid-cols-2 grid-flow-dense gap-10">
             <div 
               v-for="beneficiary in 5"
               :key="beneficiary"

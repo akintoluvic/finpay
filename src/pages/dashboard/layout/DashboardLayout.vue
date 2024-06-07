@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import RightModal from "@/components/all-modals/RightModal.vue";
 import {
   NotificationIcon,
   LogoWhite,
@@ -22,6 +23,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Separator } from "@/components/ui/separator";
+import { DownloadIcon, HamburgerMenuIcon, PersonIcon } from "@radix-icons/vue";
 import { shallowRef } from "vue";
 
 defineProps<{
@@ -65,7 +68,7 @@ const profileLinks = {
 </script>
 <template>
   <main class="flex bg-background place-items-center">
-    <div class="w-[280px] bg-primary h-screen rounded-r-2xl">
+    <div class="w-60 xl:w-[280px] hidden lg:block bg-primary h-screen rounded-r-2xl">
       <LogoWhite class="mx-auto mt-[42px] mb-10" />
       <div 
         v-if="!isProfile"
@@ -110,18 +113,24 @@ const profileLinks = {
           <PersonIcon v-if="key === 'profile'" />
           <span>{{ key }}</span>
         </RouterLink>
+        <RouterLink to="/dashboard"
+          class="flex items-center gap-x-4 px-4 mt-auto border-t pt-6 text-sm text-white"
+        >
+          <DashboardWhiteIcon />
+          Dashboard
+        </RouterLink>
       </div>
     </div>
     <div class="flex-1 h-screen overflow-y-scroll text-muted">
-      <div class="absolute z-50 flex justify-between bg-white h-[113px] w-[calc(100%-280px)] border-b pl-16 pr-28 pt-8">
+      <div class="absolute z-50 flex justify-between items-center md:items-start bg-white h-20 md:h-[113px] w-full lg:w-[calc(100%-280px)] border-b px-5 md:px-12 lg:pr-28 md:pt-8">
         
         <div>
           <h1 class="text-3xl font-semibold">{{ title }}</h1>
-          <p :v-if="greeting" class="text-sm text-muted-foreground">{{ greeting }}</p>
+          <p :v-if="greeting" class="hidden md:block text-sm text-muted-foreground">{{ greeting }}</p>
         </div>
         <div class="flex gap-x-6">
           <DropdownMenu>
-            <DropdownMenuTrigger class="flex items-center gap-x-2 self-start px-3.5 py-2.5 border border-border/60 rounded-lg font-semibold">
+            <DropdownMenuTrigger class="hidden sm:flex items-center gap-x-2 self-start px-3.5 py-2.5 border border-border/60 rounded-lg font-semibold">
               <DownIcon />
               <span class="text-muted">Quick Actions</span>
             </DropdownMenuTrigger>
@@ -155,12 +164,49 @@ const profileLinks = {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button class="rounded-full" variant="outline" size="icon">
+          <Button class="hidden sm:flex rounded-full" variant="outline" size="icon">
             <NotificationIcon class="w-5 h-5" />
           </Button>
+          
+          <RightModal
+            title="Customer’s Information"
+            :mobile-nav="true"
+          >
+            <template #trigger>
+              <Button class="rounded-full lg:hidden" variant="outline" size="icon">
+                <HamburgerMenuIcon class="w-5 h-5" />
+              </Button>
+            </template>
+
+            <div class="w-full flex flex-col gap-4">
+              <RouterLink 
+                v-for="(link, key) in links"
+                :key="link.path"
+                :to="link.path"
+                activeClass="bg-primary-light"
+                class="flex items-center gap-3 capitalize text-white py-2 px-3 hover:bg-primary-light rounded-[6px]"
+              >
+                <component :is="link.icon" />
+                <span>{{ key }}</span>
+              </RouterLink>
+              <Separator class="w-full bg-muted-background/50" />
+              <RouterLink 
+                v-for="(link, key) in profileLinks"
+                :key="link"
+                :to="link"
+                activeClass="bg-primary-light"
+                class="flex items-center gap-3 capitalize text-white py-2 px-3 hover:bg-primary-light rounded-[6px]"
+                :class="key !== 'profile' ? 'ml-10' : ''"
+              >
+                <PersonIcon v-if="key === 'profile'" />
+                <span>{{ key }}</span>
+              </RouterLink>
+            </div>
+            
+          </RightModal>
         </div>
       </div>
-      <div class="pl-16 pr-28 mt-[161px]">
+      <div class="px-5 md:px-12 lg:pr-28 mt-32 md:mt-[161px]">
         <slot />
       </div>
     </div>

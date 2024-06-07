@@ -33,7 +33,7 @@ import { ArrowRightIcon } from "@radix-icons/vue";
 
     <div class="w-full rounded-lg overflow-hidden bg-white border border-border shadow shadow-shadow">
     <Tabs default-value="all" class="w-full">
-      <TabsList class="grid w-full grid-cols-6" my-style>
+      <TabsList class="grid w-full grid-cols-2 sm:grid-cols-6" my-style>
         <TabsTrigger value="all" my-style>
           All invoices
         </TabsTrigger>
@@ -76,7 +76,22 @@ import { ArrowRightIcon } from "@radix-icons/vue";
       </TabsContent>
       <TabsContent value="pending">
         <div class="p-4">
+          pending
+        </div>
+      </TabsContent>
+      <TabsContent value="processing">
+        <div class="p-4">
+          processing
+        </div>
+      </TabsContent>
+      <TabsContent value="due">
+        <div class="p-4">
           due
+        </div>
+      </TabsContent>
+      <TabsContent value="overdue">
+        <div class="p-4">
+          Overdue
         </div>
       </TabsContent>
     </Tabs>

@@ -54,7 +54,7 @@ const identificationData = [
         <div class="flex flex-col gap-8 px-8 pb-10 pt-8 font-medium text-secondary">
           <div>Complete any pending process by clicking on uncompleted stage </div>
 
-          <div class="grid grid-cols-2 gap-x-10 gap-y-4 grid-flow-dense">
+          <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 grid-flow-dense">
             <div 
               class="flex items-center gap-4 p-4 border-b border-border"
               v-for="identity in identificationData"

@@ -121,7 +121,7 @@ const convertValue = (val: string) => {
                         placeholder="0.00" 
                         v-bind="componentField" 
                         @update:modelValue="convertValue($event + '')" 
-                        class="pr-10 pl-20 text-[32px] font-medium text-secondary placeholder:text-secondary/50" 
+                        class="pr-10 pl-10 sm:pl-20 text-2xl sm:text-[32px] font-medium text-secondary placeholder:text-secondary/50" 
                       />
                       <span class="absolute end-0 inset-y-0 text-primary my-2 flex items-center justify-center pr-2.5">
                         <DropdownMenu>
@@ -129,11 +129,14 @@ const convertValue = (val: string) => {
                             <Button variant="outline" class="flex items-center rounded-full gap-2 px-4 py-2.5 hover:bg-muted-background/5">
                               <component 
                                 :is="currencies[sendData.convertCurrencyIndex].icon" 
-                                class="h-6 w-6"
+                                class="hidden sm:flex h-6 w-6"
                               />
                               <span
                                 class="text-sm font-semibold text-secondary"
-                              >{{ currencies[sendData.convertCurrencyIndex].name }} ({{ currencies[sendData.convertCurrencyIndex].symbol }})</span>
+                              >
+                                {{ currencies[sendData.convertCurrencyIndex].name }}
+                              </span>
+                              <span class="hidden sm:flex text-sm font-semibold text-secondary">({{ currencies[sendData.convertCurrencyIndex].symbol }})</span>
                               <ChevronDownIcon />
                             </Button>
                           </DropdownMenuTrigger>
@@ -183,7 +186,7 @@ const convertValue = (val: string) => {
                     placeholder="0.00" 
                     v-model="sendData.amountToReceive"
                     disabled
-                    class="pr-10 pl-20 text-[32px] font-medium text-secondary placeholder:text-secondary/50" 
+                    class="pr-10 pl-10 sm:pl-20 text-2xl sm:text-[32px] font-medium text-secondary placeholder:text-secondary/50" 
                   />
                   <span class="absolute end-0 inset-y-0 text-primary my-2 flex items-center justify-center pr-2.5">
                     <DropdownMenu>
@@ -191,11 +194,12 @@ const convertValue = (val: string) => {
                         <Button variant="outline" class="flex items-center rounded-full gap-2 px-4 py-2.5 hover:bg-muted-background/5">
                           <component 
                             :is="currencies[sendData.receiveCurrencyIndex].icon" 
-                            class="h-6 w-6"
+                            class="hidden sm:flex h-6 w-6"
                           />
                           <span
                             class="text-sm font-semibold text-secondary"
-                          >{{ currencies[sendData.receiveCurrencyIndex].name }} ({{ currencies[sendData.receiveCurrencyIndex].symbol }})</span>
+                          >{{ currencies[sendData.receiveCurrencyIndex].name }} </span>
+                          <span class="hidden sm:flex text-sm font-semibold text-secondary"> ({{ currencies[sendData.receiveCurrencyIndex].symbol }})</span>
                           <ChevronDownIcon />
                         </Button>
                       </DropdownMenuTrigger>

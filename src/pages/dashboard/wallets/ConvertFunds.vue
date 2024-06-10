@@ -5,6 +5,7 @@ import router from "@/router";
 import { ref } from "vue";
 import SuccessOrFail from "@/components/general/SuccessOrFail.vue";
 import SendOrConvertForm from "@/components/general/SendOrConvertForm.vue";
+import { ChevronLeftIcon } from "@radix-icons/vue";
 
 const sendData = ref({
   step: 1, 
